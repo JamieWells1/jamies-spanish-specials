@@ -75,7 +75,7 @@ function removeFromLog() {
 let errorDisplayed = false;
 function goToPaymentPage() {
   if (totalPrice > 0) {
-    window.location.href = "/payment-page.html";
+    window.location.href = "payment-page.html";
   } else {
     if (!errorDisplayed) {
       errorMessage();
