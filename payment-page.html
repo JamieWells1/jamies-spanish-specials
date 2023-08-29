@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Payment Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+  </head>
+  <body>
+    <div id="fullPaymentPage">
+      <div id="sidebarContainer">
+        <div>
+          <a href="/index.html"
+            ><img
+              class="logo"
+              src="/assets/spanish-specials-logo.png"
+              alt="spanish-specials-logo"
+          /></a>
+        </div>
+        <div id="sidebarOptionsContainer" class="tab">
+          <ul>
+            <button
+              class="sidebarOption"
+              class="tablinks"
+              onclick="openTab(event, 'cashPaymentPage')"
+              id="defaultOpen"
+            >
+              <li>Cash Payment</li>
+            </button>
+            <button
+              class="sidebarOption"
+              class="tablinks"
+              onclick="openTab(event, 'cardPaymentPage')"
+            >
+              <li>Card Payment</li>
+            </button>
+            <button
+              class="sidebarOption"
+              class="tablinks"
+              onclick="openTab(event, 'applyPromoCode')"
+            >
+              <li>Apply Promo Code</li>
+            </button>
+          </ul>
+        </div>
+      </div>
+      <div id="cashPaymentPage" class="tabContent">
+        <div class="cashPaymentPageItem" id="h2"><h2>Cash Payment</h2></div>
+        <div class="cashPaymentPageItem" id="enterCashAmount">
+          <div class="totalDueContainer"></div>
+        </div>
+        <div class="cashPaymentPageItem" id="dividerEnterChoose"></div>
+        <div class="cashPaymentPageItem" id="changeDue"></div>
+        <div class="cashPaymentPageItem cashOption" id="fivePound"></div>
+        <div class="cashPaymentPageItem cashOption" id="tenPound"></div>
+        <div class="cashPaymentPageItem" id="changePaid"></div>
+        <div class="cashPaymentPageItem cashOption" id="twentyPound"></div>
+        <div class="cashPaymentPageItem cashOption" id="fiftyPound"></div>
+        <div class="cashPaymentPageItem" id="clearSelections"></div>
+        <div class="cashPaymentPageItem" id="proceedToTip"></div>
+      </div>
+      <div id="cardPaymentPage" class="tabContent">
+        <div class="cardPaymentPageItem" id="h2"><h2>Card Payment</h2></div>
+        <div
+          class="cardPaymentPageItem log-container"
+          id="paymentPageLogContainer"
+        >
+          <div id="logContainerSubtitles">
+            <h3>Item</h3>
+            <h3>Price</h3>
+          </div>
+          <div id="logContentContainer">
+          </div>
+        </div>
+        <div class="cardPaymentPageItem" id="applyPromoCode"></div>
+        <div class="cardPaymentPageItem" id="chargeCreditCard"></div>
+        <div class="cardPaymentPageItem" id="amountPaid"></div>
+        <div class="cardPaymentPageItem" id="totalDueCardPage"></div>
+        <div class="cardPaymentPageItem" id="goBack"></div>
+        <div class="cardPaymentPageItem" id="proceedToTip"></div>
+      </div>
+      <div id="applyPromoCode" class="tabContent">
+        <div>Apply Promo Code</div>
+      </div>
+    </div>
+  </body>
+  <script src="/main.js">
+</script>
+<script>
+window.onload = function() {
+    i = 0;
+    j = 0;
+    let storedFoodNamesOnLog = JSON.parse(sessionStorage.getItem("foodNamesOnLog"));
+    let storedFoodPricesOnLog = JSON.parse(sessionStorage.getItem("foodPricesOnLog"));
+    let logContentContainer = document.getElementById("logContentContainer");
+    if (storedFoodNamesOnLog && storedFoodPricesOnLog) {
+      storedFoodNamesOnLog.forEach(function(item) {
+        let logName = document.createElement("p");
+        logName.classList.add("logContent");
+        let contentFood = document.createTextNode(storedFoodNamesOnLog[i]);
+        logName.appendChild(contentFood);
+        logContentContainer.appendChild(logName);
+        
+        let logPrice = document.createElement("p");
+        logPrice.classList.add("logContent");
+        let contentPrice = document.createTextNode("£" + storedFoodPricesOnLog[j]);
+        logPrice.appendChild(contentPrice);
+        logContentContainer.appendChild(logPrice);
+        i += 1;
+        j += 1;
+      });
+    }
+  };
+    </script>
+</html>

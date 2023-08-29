@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Recorrido de España</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  </head>
+  <body>
+    <a href="/index.html"
+      ><img
+        class="logo"
+        src="/assets/spanish-specials-logo.png"
+        alt="spanish-specials-logo"
+    /></a>
+    <h1>Menu Items</h1>
+    <div class="page">
+      <div class="menu-interface">
+        <h2 class="menu-title">Starters</h2>
+        <div class="menu-section">
+          <div onclick="addToLog('Patatas Bravas', 3.99)" class="menu-item">
+            Patatas Bravas
+            <p id="patBra" class="menu-item-price"></p>
+          </div>
+          <div onclick="addToLog('Pan Fresco', 3.99)" class="menu-item">
+            Pan Fresco
+            <p id="panFre" class="menu-item-price"></p>
+          </div>
+          <div onclick="addToLog('Gazpacho', 4.49)" class="menu-item">
+            Gazpacho
+            <p id="gazpac" class="menu-item-price"></p>
+          </div>
+          <div onclick="addToLog('Quesadillas', 4.49)" class="menu-item">
+            Quesadillas
+            <p id="quesad" class="menu-item-price"></p>
+          </div>
+          <div onclick="addToLog('Garlic Bread', 3.99)" class="menu-item">
+            Garlic Bread
+            <p id="garBre" class="menu-item-price"></p>
+          </div>
+        </div>
+
+        <h2 class="menu-title">Main Meals</h2>
+        <div class="menu-section">
+          <div onclick="addToLog('Paella for two', 18.99)" class="menu-item">
+            Paella for two
+            <p id="paeTwo" class="menu-item-price"></p>
+          </div>
+          <div onclick="addToLog('Paella for four', 29.99)" class="menu-item">
+            Paella for four
+            <p id="paeFou" class="menu-item-price"></p>
+          </div>
+          <div
+            onclick="addToLog('Coquinas al ajillo', 10.99)"
+            class="menu-item"
+          >
+            Coquinas al ajillo
+            <p id="coqAji" class="menu-item-price"></p>
+          </div>
+          <div onclick="addToLog('Jamón Serrano', 13.99)" class="menu-item">
+            Jamón Serrano
+            <p id="jamSer" class="menu-item-price"></p>
+          </div>
+          <div onclick="addToLog('Salmoneja', 10.99)" class="menu-item">
+            Salmoneja
+            <p id="salmon" class="menu-item-price"></p>
+          </div>
+          <div onclick="addToLog('Papas Arrugadas', 10.99)" class="menu-item">
+            Papas Arrugadas
+            <p id="papArr" class="menu-item-price"></p>
+          </div>
+          <div onclick="addToLog('Cocido Madrileño', 11.99)" class="menu-item">
+            Cocido Madrileño
+            <p id="cocMad" class="menu-item-price"></p>
+          </div>
+        </div>
+
+        <h2 class="menu-title">Kid's Menu</h2>
+        <div class="menu-section">
+          <div onclick="addToLog('Margarita Pizza', 5.99)" class="menu-item">
+            Margarita Pizza
+            <p id="marPiz" class="menu-item-price"></p>
+          </div>
+          <div onclick="addToLog('Pepperoni Pizza', 5.99)" class="menu-item">
+            Pepperoni Pizza
+            <p id="pepPiz" class="menu-item-price"></p>
+          </div>
+          <div
+            onclick="addToLog('Chicken Nuggets and Chips', 5.99)"
+            class="menu-item"
+          >
+            Chicken Nuggets and Chips
+            <p id="chiNug" class="menu-item-price"></p>
+          </div>
+          <div onclick="addToLog('Burger and Chips', 6.99)" class="menu-item">
+            Burger and Chips
+            <p id="burChi" class="menu-item-price"></p>
+          </div>
+          <div
+            onclick="addToLog('Fish Fingers and Chips', 6.99)"
+            class="menu-item"
+          >
+            Fish Fingers and Chips
+            <p id="fisChi" class="menu-item-price"></p>
+          </div>
+        </div>
+
+        <h2 class="menu-title">Soft Drinks</h2>
+        <div class="menu-section">
+          <div onclick="addToLog('Still Water', 1.49)" class="menu-item">
+            Still Water
+            <p id="stiWat" class="menu-item-price"></p>
+          </div>
+          <div onclick="addToLog('Coca Cola', 1.99)" class="menu-item">
+            Coca Cola
+            <p id="cocCol" class="menu-item-price"></p>
+          </div>
+          <div onclick="addToLog('Diet Coke', 1.99)" class="menu-item">
+            Diet Coke
+            <p id="dieCok" class="menu-item-price"></p>
+          </div>
+          <div onclick="addToLog('Sprite Zero', 1.99)" class="menu-item">
+            Sprite Zero
+            <p id="sprZer" class="menu-item-price"></p>
+          </div>
+          <div onclick="addToLog('Fanta Orange', 1.99)" class="menu-item">
+            Fanta Orange
+            <p id="fanOra" class="menu-item-price"></p>
+          </div>
+          <div onclick="addToLog('Fanta Lemon', 1.99)" class="menu-item">
+            Fanta Lemon
+            <p id="fanLem" class="menu-item-price"></p>
+          </div>
+          <div onclick="addToLog('San Pellegrino', 2.49)" class="menu-item">
+            San Pellegrino
+            <p id="sanPel" class="menu-item-price"></p>
+          </div>
+        </div>
+
+        <h2 class="menu-title">Alcoholic Drinks</h2>
+        <div class="menu-section">
+          <div onclick="addToLog('San Miguel', 3.49)" class="menu-item">
+            San Miguel
+            <p id="sanMig" class="menu-item-price"></p>
+          </div>
+          <div onclick="addToLog('Sangria', 2.99)" class="menu-item">
+            Sangria
+            <p id="sangri" class="menu-item-price"></p>
+          </div>
+          <div onclick="addToLog('Tinto de Verano', 8.99)" class="menu-item">
+            Tinto de Verano
+            <p id="tinDeV" class="menu-item-price"></p>
+          </div>
+          <div onclick="addToLog('Madroño', 2.99)" class="menu-item">
+            Madroño
+            <p id="madron" class="menu-item-price"></p>
+          </div>
+          <div onclick="addToLog('White Wine', 8.99)" class="menu-item">
+            White Wine
+            <p id="whiWin" class="menu-item-price"></p>
+          </div>
+          <div onclick="addToLog('Estrella Dam', 3.49)" class="menu-item">
+            Estrella Dam
+            <p id="estDam" class="menu-item-price"></p>
+          </div>
+        </div>
+      </div>
+      <div class="log-container">
+        <h2 id="log-title">Transaction Log</h2>
+        <div id="log-contents">
+          <p class="log-subtitles">Item</p>
+          <p class="log-subtitles">Price</p>
+        </div>
+      </div>
+      <div id="bottom-buttons">
+        <div><span class="total-price-display">Total Price: </span></div>
+        <span class="total-price-display" id="totalPriceValue">£0.00</span>
+        <button onclick="removeFromLog(), resetTotalPrice();" id="clear-items">
+          Clear Items
+        </button>
+        <!-- <button onclick="saveAssetsOnLog(), goToPaymentPage()" id="pay-button">Pay</button> -->
+        <button onclick="goToPaymentPage()" id="pay-button">Pay</button>
+      </div>
+    </div>
+    <script src="/main.js">
+    </script>
+  </body>
+</html>
