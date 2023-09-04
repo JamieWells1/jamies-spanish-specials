@@ -168,9 +168,12 @@
       </div>
       <div class="log-container">
         <h2 id="log-title">Transaction Log</h2>
+        <div class="ContentContainer">
         <div id="log-contents">
           <p class="log-subtitles">Item</p>
           <p class="log-subtitles">Price</p>
+        </div>
+          </div>
         </div>
       </div>
       <div id="bottom-buttons">
@@ -179,11 +182,9 @@
         <button onclick="removeFromLog(), resetTotalPrice();" id="clear-items">
           Clear Items
         </button>
-        <!-- <button onclick="saveAssetsOnLog(), goToPaymentPage()" id="pay-button">Pay</button> -->
         <button onclick="goToPaymentPage()" id="pay-button">Pay</button>
       </div>
     </div>
-    <script src="main.js">
-    </script>
+    <script src="main.js"></script>
   </body>
 </html>

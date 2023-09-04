@@ -112,5 +112,4 @@ function openTab(evt, tabName) {
   document.getElementById(tabName).style.display = "grid";
   evt.currentTarget.className += " active";
 }
-
 document.getElementById("defaultOpen").click();
