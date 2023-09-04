@@ -31,6 +31,7 @@ h1 {
 .menu-title {
   text-align: center;
   font-size: 30px;
+  padding-bottom: 20px;
 }
 
 .menu-item {
@@ -47,6 +48,7 @@ h1 {
 
 .menu-item-price {
   font-size: 15px;
+  padding-top: 10px;
 }
 
 .log-container {
@@ -55,10 +57,11 @@ h1 {
   height: 930px;
 }
 
-#paymentPageLogContainer {
-  height: 58vh;
-  padding: 50px;
-  background-color: rgb(197, 197, 197);
+.ContentContainer {
+  height: 680px;
+  overflow-y: auto;
+  grid-column: span 2;
+  overflow-y: auto;
 }
 
 .menu-interface {
@@ -88,6 +91,7 @@ h1 {
   font-weight: bold;
   font-style: italic;
   color: rgb(100, 100, 100);
+  padding-bottom: 30px;
 }
 
 #bottom-buttons {
@@ -97,8 +101,8 @@ h1 {
   gap: 10px;
   width: 21%;
   height: 100px;
-  margin-left: 75.5%;
-  margin-top: 760px;
+  margin-left: 76.5%;
+  margin-top: -1150px;
   position: absolute;
 }
 
@@ -122,7 +126,7 @@ h1 {
   background-color: rgba(255, 255, 255, 0.849);
   margin: auto;
   font-size: 15px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   border-radius: 5px;
   padding-top: 10px;
 }
@@ -165,47 +169,11 @@ h1 {
   height: 100vh;
   width: 100%;
   margin: auto;
-}
-
-#cashPaymentPage {
-  display: grid;
-  align-self: center;
   overflow: hidden;
-  grid-template-columns: 25% 24% 24% 24%;
-  grid-template-rows: 13% 38% 6% 18% 18%;
-  width: 100%;
-  height: 100vh;
-  gap: 10px;
-}
-
-.cashPaymentPageItem {
-  background-color: lightgreen;
-}
-
-#h2 {
-  grid-column: 1 / 5;
-}
-
-#enterCashAmount {
-  grid-column: 1 /3;
-}
-
-#dividerEnterChoose {
-  grid-column: 1 /3;
-}
-
-#changeDue {
-  grid-column: 3 / 5;
-  grid-row: 2 / 4;
-}
-
-#changePaid {
-  grid-column: 3 / 5;
-  grid-row: 4 / 5;
 }
 
 #sidebarContainer {
-  background-color: rgb(190, 21, 21);
+  background-color: rgb(36, 36, 36);
 }
 
 .logo {
@@ -219,77 +187,340 @@ h1 {
 #sidebarOptionsContainer {
   margin-left: 10%;
   margin-top: 25%;
+  padding-top: 50px;
 }
 
 .sidebarOption {
   list-style: none;
   font-size: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   width: 200px;
   text-align: left;
   height: fit-content;
   padding: 10px;
 }
 
+.tab button {
+  background-color: transparent;
+  color: grey;
+  border: solid 1px transparent;
+}
+
 .tab button:hover {
-  background-color: #ddd;
-  border-color: aqua;
+  background-color: #38383885;
+  border-color: solid 1px transparent;
+  color: white;
+  border-radius: 10px;
+  transition: 0.5s;
 }
 
 .tab button.active {
-  background-color: #ddd;
+  background-color: #f8f8f81c;
+  border-color: solid 1px transparent;
+  color: white;
+  border-radius: 10px;
+  transition: 0.5s;
 }
+
+/* ^ CSS for cash payment page and tabs */
 
 #cardPaymentPage {
   display: grid;
-  grid-template-columns: 50% 24% 24%;
+  grid-template-columns: 48% 11% 11% 11% 11%;
   overflow: hidden;
-  grid-template-rows: 9% 24% 24% 23% 13%;
-  gap: 10px;
+  grid-template-rows: 9% 30% 18% 15% 15%;
+  gap: 15px;
+  background-color: #dddddd;
 }
 
 .cardPaymentPageItem {
-  background-color: green;
+  background-color: white;
+  border-radius: 20px;
 }
 
 #h2 {
-  grid-column: 1 / 5;
+  grid-column: 1 / 6;
   text-align: center;
   margin: auto;
   font-size: 20px;
+  background-color: transparent;
+  height: min-content;
 }
 
 #transactionLog {
   grid-row: 2 / 5;
+  overflow-y: auto;
+  margin-left: 15px;
 }
 
-#applyPromoCode {
-  grid-column: 2 / 4;
+#paymentPageLogContainer {
+  padding: 50px;
+  margin-left: 15px;
+}
+
+#applyPromoCodeCard {
+  grid-column: 2 / 6;
   grid-row: 2 / 3;
 }
 
+#promoCodeCardBox {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: 100px;
+  padding-top: 15px;
+}
+
+.promoCodeContent {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#promoCodeApplied {
+  background-color: rgb(196, 196, 196);
+  width: 54%;
+  padding: 10px;
+  border-radius: 10px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+p.promoCodeContent {
+  font-size: 15px;
+  margin: auto;
+  background-color: green;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+}
+
+#enterCheckButtonsBox > h4 {
+  margin-top: 20px;
+}
+
+#messageDiscountApplied {
+  margin-bottom: 15px;
+  width: 54%;
+  z-index: 100;
+}
+
+#errorMessage {
+  background-color: red;
+  margin-bottom: 15px;
+  width: 54%;
+  z-index: 100;
+}
+
+input.promoCodeContent {
+  border: solid 1px black;
+  background-color: black;
+  padding: 15px;
+  border-radius: 10px;
+  color: white;
+  font-size: 15px;
+}
+
+input.promoCodeContent::placeholder {
+  color: ddd;
+  margin-left: 20px;
+}
+
+button.promoCodeContent {
+  padding: 15px;
+  border-radius: 10px;
+  background-color: rgb(18, 160, 42);
+  border: solid 0px black;
+  color: white;
+}
+
+button.promoCodeContent:hover {
+  background-color: rgb(2, 112, 39);
+  transition: 0.2s;
+}
+
 #chargeCreditCard {
-  grid-column: 2 / 4;
-  grid-row: 3 / 4;
+  grid-column: 2 / 6;
+  grid-row: 4 / 5;
+  background-color: rgb(34, 137, 197);
+  border: solid 1px transparent;
+  z-index: 99;
+}
+
+#chargeCreditCard:hover {
+  background-color: rgb(22, 95, 138);
+  transition: 0.2s;
+}
+
+button.cardPaymentPageItem > h3 {
+  margin-top: 10px;
+}
+
+#creditCardIcon {
+  margin-top: 10px;
+  font-size: 40px;
+  color: white;
+}
+
+#chargeCreditCard > h3 {
+  font-size: 20px;
+  color: white;
 }
 
 #totalDueCardPage {
   grid-row: 5 / 6;
+  display: grid;
+  grid-template-columns: 50% 18% 20%;
+  margin-left: 15px;
+}
+
+.totalDueCardPageContent {
+  height: 30px;
+  width: 150px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  margin-left: 35%;
+}
+
+h3.totalDueCardPageContent {
+  font-size: 22px;
+  width: fit-content;
+  margin-left: 30%;
+}
+
+p.totalDueCardPageContent {
+  font-size: 18px;
+  width: 100px;
+}
+
+#tipDisplay {
+  color: white;
+  width: fit-content;
+  background-color: rgb(236, 168, 40);
+  margin-left: 65px;
+  text-align: center;
+  width: 75px;
+  border-radius: 10px;
+}
+
+.totalAmountDisplayWithDiscount {
+  background-color: rgb(18, 160, 42);
+  color: white;
+  border-radius: 10px;
+}
+
+#totalAmountDisplayLog {
+  color: transparent;
 }
 
 #goBack {
-  grid-column: 2 / 3;
+  grid-column: 2 / 4;
   grid-row: 5 / 6;
+  position: relative;
+  background-color: rgb(206, 34, 34);
+  color: white;
+}
+
+#goBack:hover {
+  background-color: rgb(172, 28, 28);
+  transition: 0.2s;
+}
+
+#goBack > * {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#goBack > span {
+  font-size: 60px;
+  margin-left: 20%;
+}
+
+#goBack > h3 {
+  display: inline-block;
+  margin-left: 50%;
+  font-size: 24px;
 }
 
 #amountPaid {
-  grid-column: 2 / 4;
-  grid-row: 4 / 5;
+  grid-column: 2 / 6;
+  grid-row: 3 / 4;
+  display: grid;
+  gap: 20px;
+  overflow: hidden;
+  grid-template-columns: 20% 20% 20% 20%;
+}
+
+.tipContainer {
+  border: solid 0px transparent;
+}
+
+.tipContainer:hover {
+  background-color: #c5c5c5;
+  transition: 0.5s;
+}
+
+.tipContainer > h3 {
+  color: black;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+#tipOptionActive {
+  background-color: green;
+  transition: 0.5s;
+}
+#tipOptionActiveForever {
+  background-color: green;
+}
+
+#tipOptionActive > span {
+  color: white;
+  font-size: 40px;
+}
+
+h3.amountPaidContent {
+  margin-top: 15px;
+  padding-bottom: 5px;
+}
+
+.amountPaidContent.material-symbols-outlined {
+  text-align: center;
+  width: 100%;
+  font-size: 40px;
 }
 
 #proceedToTip {
-  grid-column: 3 / 4;
+  grid-column: 4 / 6;
   grid-row: 5 / 6;
+  position: relative;
+  background-color: rgb(34, 137, 197);
+}
+
+#proceedToTip:hover {
+  background-color: rgb(22, 95, 138);
+  transition: 0.2s;
+}
+
+#proceedToTip > * {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+}
+
+#proceedToTip > span {
+  font-size: 60px;
+  margin-left: 75%;
+}
+
+#proceedToTip > h3 {
+  margin-left: 10%;
+  font-size: 24px;
 }
 
 .totalDueContainer {
@@ -305,18 +536,124 @@ h1 {
 
 #logContainerSubtitles {
   display: grid;
-  grid-template-columns: 60% 40%;
-  margin-left: 10%;
+  grid-template-columns: 55% 40%;
+  margin-left: 15%;
   font-size: 20px;
   padding-bottom: 10%;
+  margin-top: 10%;
 }
 
 #logContentContainer {
   display: grid;
-  grid-template-columns: 60% 40%;
-  margin-left: 10%;
+  grid-template-columns: 55% 40%;
+  margin-left: 15%;
 }
 
 .logContent {
-  padding-bottom: 10%;
+  padding-bottom: 5%;
+}
+
+#transactionTab {
+  background-color: #dddddd;
+  display: grid;
+  grid-template-columns: 47% 47%;
+  grid-template-rows: 10% 20% 26% 30%;
+  overflow: hidden;
+  gap: 20px;
+  padding-left: 20px;
+}
+
+#transactionTab > h2 {
+  grid-column: span 2;
+  text-align: center;
+  height: min-content;
+  font-size: 30px;
+  margin-top: 20px;
+}
+
+#transactionTab > .transactionTabContainer {
+  border-radius: 20px;
+}
+
+#transactionHistoryContainer {
+  grid-row: 2 / 5;
+  background-color: white;
+}
+
+#logSubheadingContent {
+  display: grid;
+  grid-template-columns: 30% 33.3% 33.3%;
+  margin-top: 5%;
+  text-align: center;
+  margin: auto;
+}
+
+.dataContainer > * {
+  margin-bottom: 20px;
+}
+
+#dateTimeAmountContainer {
+  display: grid;
+  grid-template-columns: 30% 33.3% 33.3%;
+  text-align: center;
+  margin: auto;
+  overflow-y: auto;
+}
+
+.logSubheading {
+  margin-top: 30px;
+  font-size: 22px;
+  text-align: center;
+  font-style: italic;
+  color: rgb(100, 100, 100);
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+
+#clearLog {
+  grid-column: 2 / 3;
+  grid-row: 2 / 4;
+  border: solid 0px transparent;
+  font-size: 25px;
+  background-color: white;
+}
+
+#clearLog > form {
+  margin: auto;
+  text-align: center;
+  width: fit-content;
+  height: fit-content;
+  margin-top: 20%;
+}
+
+#clearLog > form > input {
+  border: solid 0px transparent;
+  background-color: black;
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+#clearLog > form > input::placeholder {
+  color: rgb(196, 196, 196);
+}
+
+#clearLog > form > * {
+  display: block;
+  margin-bottom: 10px;
+}
+
+#clearLog > form > button {
+  border: solid 2px rgb(165, 8, 8);
+  background-color: transparent;
+  padding: 15px;
+  border-radius: 10px;
+  color: rgb(165, 8, 8);
+  width: 193px;
+}
+
+#clearLog > form > button:hover {
+  background-color: rgb(165, 8, 8);
+  color: white;
+  transition: 0.2s;
 }
