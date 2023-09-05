@@ -75,10 +75,10 @@
               }
               </style>
         </button>
-        <button class="cardPaymentPageItem tipContainer"><h3 id="5h3">5%</h3></button>
-        <button class="cardPaymentPageItem tipContainer"><h3>10%</h3></button>
-        <button class="cardPaymentPageItem tipContainer"><h3>15%</h3></button>
-        <button class="cardPaymentPageItem tipContainer" id="chooseAmountContainer"><h3>None</h3></button>
+        <button class="cardPaymentPageItem tipContainer"><h3 id="5h3">5% Tip</h3></button>
+        <button class="cardPaymentPageItem tipContainer"><h3>10% Tip</h3></button>
+        <button class="cardPaymentPageItem tipContainer"><h3>15% Tip</h3></button>
+        <button class="cardPaymentPageItem tipContainer" id="chooseAmountContainer"><h3>No Tip</h3></button>
         <div class="cardPaymentPageItem" id="totalDueCardPage">
           <h3 class="totalDueCardPageContent">Total Due:</h3>
         </div>
@@ -218,8 +218,8 @@
           let logEmptyMessage = document.createElement("h2");
           logEmptyMessage.innerText = "Log Empty";
           let logEmptyIcon = document.createElement("IMG");
-          logEmptyIcon.setAttribute("src", "assets/no-results-icon.png")
-          logEmptyIcon.setAttribute("alt", "no-results-icon")
+          logEmptyIcon.setAttribute("src", "assets/no-results-icon.png");
+          logEmptyIcon.setAttribute("alt", "no-results-icon");
           let logEmptyPrompt = document.createElement("p");
           logEmptyPrompt.innerText = "Complete an order to see it on the log";
           logEmptyContainer.appendChild(logEmptyMessage);
@@ -233,6 +233,7 @@
     let totalAmountDisplay = document.getElementById("totalAmountDisplay").innerText;
     let items = JSON.parse(localStorage.getItem("items")) || [];
     items.push(totalAmountDisplay);
+    localStorage.setItem("totalAmountDisplay", JSON.stringify(totalAmountDisplay));
     localStorage.setItem("items", JSON.stringify(items));
 }
 
