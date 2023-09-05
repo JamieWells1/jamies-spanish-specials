@@ -9,16 +9,24 @@
     
 </head>
 <body>
+    <form id="clearLogForm" action="">
+        <input type="password" placeholder="password" id="passwordInput">
+        <button type="submit">Submit</button>
+    </form>
     <script>
-            function time() {
-var currentdate = new Date(); 
-var timenow = + currentdate.getHours() + ":"  
-            + currentdate.getMinutes() + ":" 
-            + currentdate.getSeconds();
-  document.getElementById("datebtn").innerHTML = "time is ="+timenow;
-}
-    </script>
-    <p id="datebtn">time is =</p>
-    <button type="button" onclick="time()">click to show the time</button>
+    const correctPassword = "admin123";
+        const clearLogForm = document.getElementById("clearLogForm");
+        var passwordInput = document.getElementById("passwordInput");
+        clearLogForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+            if (passwordInput.value !== correctPassword) {
+                passwordInput.classList.add("invalid");
+                alert("Invalid");
+            } else {
+                passwordInput.classList.remove("invalid");
+                alert("Valid");
+            }
+        });
+        </script>
 </body>
 </html>

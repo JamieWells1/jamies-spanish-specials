@@ -50,7 +50,7 @@
         <div class="cardPaymentPageItem" id="applyPromoCodeCard">
           <div id="promoCodeCardBox">
             <h3 class="promoCodeContent">Apply Promo Code</h3>
-            <form class="promoCodeContent">
+            <form id="promoCodeForm" class="promoCodeContent">
             <div class="promoCodeContent" id="enterCheckButtonsBox">
               <input class="promoCodeContent" type="text" placeholder="Try '30%OFF'"></input>
               <button class="promoCodeContent" type="submit">Check</button>
@@ -163,7 +163,8 @@
         });
       }
 
-      for (let i = 0; i < storedFoodPricesOnLog.length; i++) {
+      if (storedFoodPricesOnLog) {
+        for (let i = 0; i < storedFoodPricesOnLog.length; i++) {
         totalAmount += storedFoodPricesOnLog[i];
       }
       let totalDueCardPage = document.getElementById("totalDueCardPage");
@@ -173,6 +174,9 @@
       let content = document.createTextNode("£" + totalAmount.toFixed(2));
       logName.appendChild(content);
       totalDueCardPage.appendChild(logName);
+      }
+      
+
 
       if (localStorage.length > 0) {
         let storedItems = JSON.parse(localStorage.getItem("items"));
@@ -201,7 +205,28 @@
           transactionDate.appendChild(contentThree);
           dateContainer.appendChild(transactionDate);
         }
-        };
+        } else {
+          console.log(localStorage.length);
+          document.querySelector("#transactionTab h2").classList.add("test");
+          let transactionTab = document.getElementById("transactionTab");
+          document.getElementById("transactionTab").style.backgroundColor = "transparent"
+          document.querySelector("#transactionTab h2").style.display = "none"
+          document.querySelector("#transactionHistoryContainer").style.display = "none"
+          document.querySelector("#clearLog").style.display = "none"
+          let logEmptyContainer = document.createElement("div");
+          logEmptyContainer.setAttribute("id", "logEmptyContainer");
+          let logEmptyMessage = document.createElement("h2");
+          logEmptyMessage.innerText = "Log Empty";
+          let logEmptyIcon = document.createElement("IMG");
+          logEmptyIcon.setAttribute("src", "assets/no-results-icon.png")
+          logEmptyIcon.setAttribute("alt", "no-results-icon")
+          let logEmptyPrompt = document.createElement("p");
+          logEmptyPrompt.innerText = "Finish your order to see it on the log";
+          logEmptyContainer.appendChild(logEmptyMessage);
+          logEmptyContainer.appendChild(logEmptyIcon);
+          logEmptyContainer.appendChild(logEmptyPrompt);
+          transactionTab.appendChild(logEmptyContainer);
+        }
       };
 
       function appendTransaction() {
@@ -230,22 +255,26 @@ function date() {
   localStorage.setItem("transactionDates", JSON.stringify(transactionDates));
 }
 
-/* const correctPassword = "admin123";
-const clearLogForm = document.getElementById("clearLogForm");
-var passwordInput = document.getElementById("passwordInput");
-clearLogForm.addEventListener("submit", function(event) {
-    event.preventDefault();
-    if (passwordInput.value !== correctPassword) {
-      alert("Invalid")
-    } else {
-        passwordInput.classList.remove("invalid");
-        alert("Valid");
-    }
-}); */
+const correctPassword = "admin123";
+        const clearLogForm = document.getElementById("clearLogForm");
+        var passwordInput = document.getElementById("passwordInput");
+        clearLogForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+            if (passwordInput.value !== correctPassword) {
+              let logClearErrorBox = document.createElement("div");
+              logClearErrorBox.setAttribute("id", "logClearErrorBox");
+              let logClearErrorMessage = document.createTextNode("That password is incorrect");
+              logClearErrorBox.appendChild(logClearErrorMessage);
+              clearLogForm.appendChild(logClearErrorBox);
+            } else {
+                alert("Valid");
+            }
+            clearLogForm.reset();
+        });
 
     promoCodes = ['10%OFF', '20%OFF', '30%OFF', '40%OFF'];
-let form = document.querySelector('form');
-form.addEventListener('submit', (event) => {
+let promoCodeForm = document.getElementById('promoCodeForm');
+promoCodeForm.addEventListener('submit', (event) => {
   event.preventDefault();
   const input = document.querySelector('input').value;
   let promoCodeMatch = false;
@@ -253,7 +282,7 @@ form.addEventListener('submit', (event) => {
   
   for (var i = 0; i < promoCodes.length; i++) {
     if (input === promoCodes[i]) {
-      form.reset();
+      promoCodeForm.reset();
       promoCodeMatch = true;
       isPromoCodeApplied = true;
       var discountedPrice = (totalAmount - (totalAmount * ((i + 1) * 0.1))).toFixed(2);
@@ -268,7 +297,7 @@ form.addEventListener('submit', (event) => {
       totalAmountDisplay = document.getElementById("totalAmountDisplay");
       totalAmountDisplay.innerHTML = "£" + ((totalAmount - discount).toFixed(2));
       totalAmountDisplay.classList.add("totalAmountDisplayWithDiscount");
-      document.querySelector("form.promoCodeContent").remove();
+      document.querySelector("#promoCodeForm.promoCodeContent").remove();
       document.querySelector("h3.promoCodeContent").innerText = "Promo Code '" + input + "' applied!"
       document.querySelector("h4.promoCodeContent").remove();
       break;

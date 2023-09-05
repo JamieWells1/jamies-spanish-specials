@@ -1,40 +1,36 @@
-function changePrice(idOfItem, itemPrice) {
-  document.getElementById(idOfItem).innerHTML = "£" + itemPrice;
-}
+changePrice("patBra", parseFloat(3.99));
+changePrice("panFre", parseFloat(3.99));
+changePrice("gazpac", parseFloat(4.49));
+changePrice("quesad", parseFloat(4.49));
+changePrice("garBre", parseFloat(3.99));
+changePrice("paeTwo", parseFloat(18.99));
+changePrice("paeFou", parseFloat(29.99));
+changePrice("coqAji", parseFloat(10.99));
+changePrice("jamSer", parseFloat(13.99));
+changePrice("salmon", parseFloat(10.99));
+changePrice("papArr", parseFloat(10.99));
+changePrice("cocMad", parseFloat(11.99));
+changePrice("marPiz", parseFloat(5.99));
+changePrice("pepPiz", parseFloat(5.99));
+changePrice("chiNug", parseFloat(5.99));
+changePrice("sangri", parseFloat(2.99));
+changePrice("burChi", parseFloat(6.99));
+changePrice("fisChi", parseFloat(6.99));
+changePrice("stiWat", parseFloat(1.49));
+changePrice("cocCol", parseFloat(1.99));
+changePrice("dieCok", parseFloat(1.99));
+changePrice("tinDeV", parseFloat(8.99));
+changePrice("sprZer", parseFloat(1.99));
+changePrice("fanOra", parseFloat(1.99));
+changePrice("fanLem", parseFloat(1.99));
+changePrice("sanPel", parseFloat(2.49));
+changePrice("sanMig", parseFloat(3.49));
+changePrice("madron", parseFloat(2.99));
+changePrice("whiWin", parseFloat(8.99));
+changePrice("estDam", parseFloat(3.49));
 
-changePrice("patBra", 3.99);
-changePrice("panFre", 3.99);
-changePrice("gazpac", 4.49);
-changePrice("quesad", 4.49);
-changePrice("garBre", 3.99);
-changePrice("paeTwo", 18.99);
-changePrice("paeFou", 29.99);
-changePrice("coqAji", 10.99);
-changePrice("jamSer", 13.99);
-changePrice("salmon", 10.99);
-changePrice("papArr", 10.99);
-changePrice("cocMad", 11.99);
-changePrice("marPiz", 5.99);
-changePrice("pepPiz", 5.99);
-changePrice("chiNug", 5.99);
-changePrice("sangri", 2.99);
-changePrice("burChi", 6.99);
-changePrice("fisChi", 6.99);
-changePrice("stiWat", 1.49);
-changePrice("cocCol", 1.99);
-changePrice("dieCok", 1.99);
-changePrice("tinDeV", 8.99);
-changePrice("sprZer", 1.99);
-changePrice("fanOra", 1.99);
-changePrice("fanLem", 1.99);
-changePrice("sanPel", 2.49);
-changePrice("sanMig", 3.49);
-changePrice("madron", 2.99);
-changePrice("whiWin", 8.99);
-changePrice("estDam", 3.49);
-
-const totalPriceValue = document.getElementById("totalPriceValue");
-let totalPrice = 0;
+var totalPriceValue = document.getElementById("totalPriceValue");
+var totalPrice = 0;
 var foodNamesOnLog = [];
 var foodPricesOnLog = [];
 
@@ -72,7 +68,7 @@ function removeFromLog() {
   }
 }
 
-let errorDisplayed = false;
+errorDisplayed = false;
 function goToPaymentPage() {
   if (totalPrice > 0) {
     window.location.href = "payment-page.html";
@@ -112,4 +108,10 @@ function openTab(evt, tabName) {
   document.getElementById(tabName).style.display = "grid";
   evt.currentTarget.className += " active";
 }
-document.getElementById("defaultOpen").click();
+window.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("defaultOpen").click();
+});
+
+function changePrice(idOfItem, itemPrice) {
+  document.getElementById(idOfItem).innerText = "£" + parseFloat(itemPrice);
+}
