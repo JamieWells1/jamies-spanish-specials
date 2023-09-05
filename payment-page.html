@@ -221,7 +221,7 @@
           logEmptyIcon.setAttribute("src", "assets/no-results-icon.png")
           logEmptyIcon.setAttribute("alt", "no-results-icon")
           let logEmptyPrompt = document.createElement("p");
-          logEmptyPrompt.innerText = "Finish your order to see it on the log";
+          logEmptyPrompt.innerText = "Complete an order to see it on the log";
           logEmptyContainer.appendChild(logEmptyMessage);
           logEmptyContainer.appendChild(logEmptyIcon);
           logEmptyContainer.appendChild(logEmptyPrompt);
@@ -263,11 +263,19 @@ const correctPassword = "admin123";
             if (passwordInput.value !== correctPassword) {
               let logClearErrorBox = document.createElement("div");
               logClearErrorBox.setAttribute("id", "logClearErrorBox");
-              let logClearErrorMessage = document.createTextNode("That password is incorrect");
+              let logClearErrorMessage = document.createTextNode("Password incorrect");
               logClearErrorBox.appendChild(logClearErrorMessage);
               clearLogForm.appendChild(logClearErrorBox);
+              setTimeout(() => {
+                clearLogForm.removeChild(logClearErrorBox);
+              }, 2000);
             } else {
-                alert("Valid");
+              localStorage.clear();
+              let logClearConfirmBox = document.createElement("div");
+              logClearConfirmBox.setAttribute("id", "logClearConfirmBox");
+              let logClearConfirmMessage = document.createTextNode("Log cleared successfully");
+              logClearConfirmBox.appendChild(logClearConfirmMessage);
+              clearLogForm.appendChild(logClearConfirmBox);
             }
             clearLogForm.reset();
         });
@@ -290,7 +298,7 @@ promoCodeForm.addEventListener('submit', (event) => {
       let promoCodeCardBox = document.getElementById("promoCodeCardBox");
       let messageDiscountApplied = document.createElement("p");
       messageDiscountApplied.classList.add("promoCodeContent");
-      messageDiscountApplied.setAttribute("id", "messageDiscountApplied")
+      messageDiscountApplied.setAttribute("id", "messageDiscountApplied");
       let content = document.createTextNode("£" + discount + " saved on order!");
       messageDiscountApplied.appendChild(content);
       promoCodeCardBox.appendChild(messageDiscountApplied);
@@ -302,11 +310,6 @@ promoCodeForm.addEventListener('submit', (event) => {
       document.querySelector("h4.promoCodeContent").remove();
       break;
     }
-
-    else if (isPromoCodeApplied) {
-        promoCodeError("A promo code has already been applied.");
-        return;
-      }
   }
 
   if (!promoCodeMatch) {
@@ -315,7 +318,7 @@ promoCodeForm.addEventListener('submit', (event) => {
 });
 
 function promoCodeError(errorMessage) {
-  form.reset();
+  promoCodeForm.reset();
   let promoCodeCardBox = document.getElementById("promoCodeCardBox");
   let messageDiscountApplied = document.createElement("p");
   messageDiscountApplied.classList.add("promoCodeContent");
@@ -328,7 +331,6 @@ function promoCodeError(errorMessage) {
       promoCodeCardBox.removeChild(messageDiscountApplied);
     }, 2000);
 
-  let cancelButton = document.getElementById("cancelButton");
   let promoCodeInput = document.getElementById("promoCodeInput");
 
   cancelButton.addEventListener("click", () => {

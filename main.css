@@ -668,6 +668,16 @@ h3.amountPaidContent {
   border-radius: 10px;
 }
 
+#logClearConfirmBox {
+  font-size: 15px;
+  margin-top: 10px;
+  text-align: center;
+  padding: 10px;
+  background-color: green;
+  color: white;
+  border-radius: 10px;
+}
+
 .transactionTabHidden {
   background-color: red;
 }
